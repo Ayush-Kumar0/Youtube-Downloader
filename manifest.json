@@ -1,0 +1,29 @@
+{
+    "name": "UTube Downloader",
+    "description": "Download your YouTube videos without ever leaving your page",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "./popups/index.html"
+    },
+    "background": {
+        "service_worker": "./background.js"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "content_scripts": [
+        {
+            "js": [
+                "./scripts/content.js"
+            ],
+            "matches": [
+                "*://youtube.com/*",
+                "*://*.youtube.com/*"
+            ]
+        }
+    ]
+}
