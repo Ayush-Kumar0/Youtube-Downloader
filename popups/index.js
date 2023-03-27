@@ -12,27 +12,29 @@ function sendToContent(tabs) {
     const url = tabs[0].url;
     const tabId = tabs[0].id;
     // Long lived Connection
-    if (port == null)
-        port = chrome.tabs.connect(tabId);
+    if (url.match('((http|https)://|)(www.|)youtube.com/(watch|shorts)')) {
+        if (port == null)
+            port = chrome.tabs.connect(tabId);
 
-    const connection = () => {
-        // console.log('Sending message to content.js .......');
-        port.postMessage(null);
-        port.onMessage.addListener((res) => {
-            // Response from content.js
-            if (res) {
-                if (!res.downloadURL) {
-                    showQualityOptions(res, port);
+        const connection = () => {
+            // console.log('Sending message to content.js .......');
+            port.postMessage(null);
+            port.onMessage.addListener((res) => {
+                // Response from content.js
+                if (res) {
+                    if (!res.downloadURL) {
+                        showQualityOptions(res, port);
+                    }
+                    else {
+                        renderURL(res.downloadURL);
+                    }
+                } else {
+                    renderURL();
                 }
-                else {
-                    renderURL(res.downloadURL);
-                }
-            } else {
-                renderURL();
-            }
-        });
+            });
+        }
+        connection();
     }
-    connection();
 }
 
 
