@@ -1,0 +1,63 @@
+body {
+    width: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(65, 65, 65);
+}
+
+#para {
+    display: none;
+    color: red;
+    font-style: italic;
+    text-align: center;
+}
+
+#btn {
+    margin: 3px;
+    /* background-color: rgb(183, 247, 255); */
+}
+
+#quality-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 8px;
+}
+
+select,
+option {
+    width: 92.5px;
+}
+
+select {
+    border: none;
+    outline: none;
+}
+
+button {
+    background-color: white;
+    color: black;
+    border-width: 0px;
+    border-radius: 3px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(207, 207, 207);
+}
+
+button:disabled {
+    background-color: grey;
+    cursor: initial;
+}
+
+button:active:enabled {
+    background-color: rgba(150, 208, 255, 0.849);
+}
+
+label {
+    color: white;
+}

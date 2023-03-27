@@ -4,26 +4,22 @@
     <head>
         <title>Youtube Downloader extension</title>
     </head>
-
-    <style>
-        #para {
-            display: none;
-            color: red;
-            font-style: italic;
-            text-align: center;
-        }
-
-        #btn {
-            margin: 5px;
-            background-color: rgb(183, 247, 255);
-        }
-
-    </style>
+    <link rel="stylesheet" href="./index.css">
 
     <body>
-        <p id="para">Try Again</p>
+        <!-- Get Link Button -->
         <button id="btn">Get Link</button>
-        <br>
+        <p id="para">Try Again</p>
+
+        <!-- Quality Selector -->
+        <div id="quality-container">
+            <label for="quality">Quality:</label>
+            <select name="quality" id="quality">
+                <!-- <option value=""></option> -->
+            </select>
+        </div>
+
+        <!-- Download Button -->
         <button id="dnld" disabled>Download</button>
         <script defer src="./index.js"></script>
     </body>
